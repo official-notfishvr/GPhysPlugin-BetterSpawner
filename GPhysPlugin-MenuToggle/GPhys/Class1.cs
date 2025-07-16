@@ -15,9 +15,15 @@ public class MenuToggle : IGPhysPlugin
     public string PluginName => "Menu Toggle";
     public string Version => "1.0.0";
     public Plugin? gphysInstance;
+    private Harmony? harmony;
 
     public void Cleanup()
     {
+        if (harmony != null)
+        {
+            harmony.UnpatchSelf();
+            harmony = null;
+        }
     }
     public void Update()
     {
@@ -29,7 +35,7 @@ public class MenuToggle : IGPhysPlugin
     {
         gphysInstance = instance;
 
-        var harmony = new Harmony("com.notfishvr.gphysplugin.menutoggle");
+        harmony = new Harmony("com.notfishvr.gphysplugin.menutoggle");
         harmony.PatchAll();
     }
     public void RegisterSpawnables()

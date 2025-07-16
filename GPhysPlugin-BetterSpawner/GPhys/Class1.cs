@@ -14,6 +14,7 @@ public class BetterSpawner: IGPhysPlugin
     public string PluginName => "Better Spawner";
     public string Version => "1.0.0";
     public Plugin? gphysInstance;
+    private Harmony? harmony;
 
     private static List<string> capturedButtonNames = new List<string>();
     private static float customSliderValue = 1f; 
@@ -22,6 +23,15 @@ public class BetterSpawner: IGPhysPlugin
 
     public void Cleanup()
     {
+        if (harmony != null)
+        {
+            harmony.UnpatchSelf();
+            harmony = null;
+        }
+        
+        capturedButtonNames.Clear();
+        customSliderValue = 1f;
+        sliderWindowInitialized = false;
     }
     public void Update()
     {
@@ -33,7 +43,7 @@ public class BetterSpawner: IGPhysPlugin
     {
         gphysInstance = instance;
 
-        var harmony = new Harmony("com.notfishvr.gphysplugin.betterspawner");
+        harmony = new Harmony("com.notfishvr.gphysplugin.betterspawner");
         harmony.PatchAll();
     }
     public void RegisterSpawnables()
