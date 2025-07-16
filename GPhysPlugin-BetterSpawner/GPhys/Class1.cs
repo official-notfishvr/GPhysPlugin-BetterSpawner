@@ -12,7 +12,7 @@ using System.Collections.Generic;
 public class BetterSpawner: IGPhysPlugin
 {
     public string PluginName => "Better Spawner";
-    public string Version => "1.0.0";
+    public string Version => "1.0.1";
     public Plugin? gphysInstance;
     private Harmony? harmony;
 

@@ -13,7 +13,7 @@ using BepInEx;
 public class MenuToggle : IGPhysPlugin
 {
     public string PluginName => "Menu Toggle";
-    public string Version => "1.0.0";
+    public string Version => "1.0.1";
     public Plugin? gphysInstance;
     private Harmony? harmony;
 
