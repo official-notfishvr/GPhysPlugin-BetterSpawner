@@ -98,7 +98,7 @@ public class BetterSpawner: IGPhysPlugin
                 sliderWindowRect.y = 50;
                 sliderWindowInitialized = true;
             }
-            sliderWindowRect = GUI.Window(987654, sliderWindowRect, SliderWindowContents, "Spawn Count");
+            sliderWindowRect = GUI.Window(2285610, sliderWindowRect, SliderWindowContents, "Spawn Count");
             GUILayout.Space(10);
         }
 
